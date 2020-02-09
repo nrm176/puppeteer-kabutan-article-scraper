@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const express = require('express');
 
 const app = express();
-const PORT = 8021;
+const PORT = process.env.PORT;
 const USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, likeGecko) Chrome/41.0.2228.0 Safari/537.36';
 const CONTENT_TYPE = 'application/json; charset=utf-8'
 
