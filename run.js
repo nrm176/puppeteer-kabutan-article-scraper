@@ -47,7 +47,7 @@ const parser_process = async (article_url) => {
         return data;
     }
 
-    const LAUNCH_OPTION = process.env.DYNO ? { args: ['--no-sandbox', '--disable-setuid-sandbox'] } : { headless: false };
+    const LAUNCH_OPTION = process.env.DYNO == 1 ? { args: ['--no-sandbox', '--disable-setuid-sandbox'] } : { headless: false };
 
     const browser = await puppeteer.launch(LAUNCH_OPTION);
     const page = await browser.newPage();
