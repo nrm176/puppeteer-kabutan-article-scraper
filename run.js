@@ -17,8 +17,8 @@ app.listen(PORT, function () {
 });
 
 app.post('/parse', async (req, res) => {
-    let KABUTAN_ARTICLE_URL = req.body.url;
-    const data = await parser_process(KABUTAN_ARTICLE_URL)
+    let kabutan_article_url = req.body.url;
+    const data = await parser_process(kabutan_article_url)
     res.header('Content-Type', CONTENT_TYPE);
     res.json(data);
 });
