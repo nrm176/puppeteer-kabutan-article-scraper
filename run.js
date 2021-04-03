@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const express = require('express');
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3031;
 const USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, likeGecko) Chrome/41.0.2228.0 Safari/537.36';
 const CONTENT_TYPE = 'application/json; charset=utf-8'
 
@@ -54,7 +54,7 @@ const parser_process = async (article_url) => {
     await page.setUserAgent(USER_AGENT);
     await page.setViewport({width: 1000, height: 1000, deviceScaleFactor: 1});
     await page.goto(article_url, {waitUntil: 'networkidle2'});
-    await page.waitFor(1000);
+    await page.waitForTimeout(1000);
     let data = await extract_data();
     await browser.close();
     return data;
